@@ -36,6 +36,10 @@
 
             </section>
 
+            <hr>
+
+            [%- previewBar %]
+
         </main>
 
         <script type="text/javascript">
@@ -63,7 +67,7 @@
                                 var people = r.results;
                                 
                                 $("main").html(
-                                    ejs.render($("main").html(), {about: about, people: people})
+                                    ejs.render($("main").html(), {previewBar: Api.previewBar(), about: about, people: people})
                                 );
 
                             })
