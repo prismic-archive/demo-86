@@ -19,6 +19,23 @@
 
             [%- about.getStructuredText('about.body').asHtml() %]
 
+            <section id="team">
+
+                [% people.map(function(person) { %] 
+
+                    <div class="person">
+                        <img width="200" src="[%= person.getImageView('person.photo', 'small').url %]">
+                        <h2>[%= person.getText('person.fullname') %]</h2>
+                        <h3>[%= person.getText('person.title') %]</h3>
+                        <p>
+                            [%= person.getText('person.bio') || '' %]
+                        </p>
+                    </div>
+
+                [% }) %]
+
+            </section>
+
         </main>
 
         <script type="text/javascript">
@@ -35,15 +52,26 @@
                     .submit(function(err, r) {
 
                         var about = r.results[0];
-                        
-                        $("main").html(
-                            ejs.render($("main").html(), {about: about})
-                        );
+                        var teamIds = about.getGroup('about.team').toArray().map(function(p) { return p.person.document.id; })
+
+                        Api.form(Api.EVERYTHING)
+                            .query([Api.ANY, Api.DOCUMENT_ID, teamIds])
+                            .orderings("[my.person.fullname]")
+                            .ref(REF)
+                            .submit(function(err, r) {
+
+                                var people = r.results;
+                                
+                                $("main").html(
+                                    ejs.render($("main").html(), {about: about, people: people})
+                                );
+
+                            })
 
                     })
               
 
-            });
+            }); 
 
         </script>
         
