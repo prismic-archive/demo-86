@@ -17,28 +17,33 @@
 
         <main>
 
-            <h1>About us</h1>
-
-            <p>TODO...</p>
-
-            <section id="team">
-
-                <div class="person">
-                    <img width="200" src="http://www.clker.com/cliparts/v/B/7/n/s/8/free-vector-person.svg">
-                    <h2>Bob</h2>
-                    <h3>CEO</h3>
-                    <p>
-                        Bob's bio
-                    </p>
-                </div>
-
-            </section>
+            [%- about.getStructuredText('about.body').asHtml() %]
 
         </main>
 
         <script type="text/javascript">
 
-            // TODO
+            var API_URL = "https://demo-86.prismic.io/api";
+
+            Prismic.Api(API_URL, function(err, Api) {
+
+                var REF = (/ref=([a-zA-Z0-9_-]+)/.exec(document.location.search) || [])[1] || Api.master();
+
+                Api.form(Api.EVERYTHING)
+                    .query([Api.AT, Api.DOCUMENT_ID, Api.bookmarks['about']])
+                    .ref(REF)
+                    .submit(function(err, r) {
+
+                        var about = r.results[0];
+                        
+                        $("main").html(
+                            ejs.render($("main").html(), {about: about})
+                        );
+
+                    })
+              
+
+            });
 
         </script>
         
