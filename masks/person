@@ -1,0 +1,39 @@
+{
+  "Person" : {
+    "fullname" : {
+      "type" : "StructuredText",
+      "fieldset" : "Person information",
+      "config" : {
+        "single" : "heading1",
+        "placeholder" : "Full name..."
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "placeholder" : "Job title..."
+      }
+    },
+    "bio" : {
+      "type" : "StructuredText",
+      "config" : {
+        "placeholder" : "Short bio...",
+        "single" : "paragraph,em,strong,hyperlink"
+      }
+    },
+    "photo" : {
+      "type" : "Image",
+      "fieldset" : "Photo",
+      "config" : {
+        "constraint" : {
+          "width" : 400
+        },
+        "thumbnails" : [ {
+          "name" : "small",
+          "width" : 200,
+          "height" : 200
+        } ]
+      }
+    }
+  }
+}

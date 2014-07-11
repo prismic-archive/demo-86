@@ -1,0 +1,26 @@
+{
+  "Main" : {
+    "body" : {
+      "type" : "StructuredText",
+      "fieldset" : "Main page content"
+    }
+  },
+  "Team" : {
+    "team" : {
+      "type" : "Group",
+      "fieldset" : "Team members",
+      "config" : {
+        "fields" : {
+          "person" : {
+            "type" : "Link",
+            "config" : {
+              "placeholder" : "Link to person...",
+              "select" : "document",
+              "masks" : [ "person" ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

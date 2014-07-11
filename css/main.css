@@ -1,0 +1,71 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400);
+
+body {
+  font-family: 'Lato';
+  width: 1280px;
+  margin: auto;
+  text-align: center;
+  display: none;
+}
+
+body main {
+  padding: 25px 200px;
+  font-weight: 300;
+  line-height: 1.8em;
+}
+
+body main h1 {
+  color: #262626;
+  font-weight: 300;
+  line-height: 1.8em;
+}
+
+body main p {
+  color: #586272;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6em;
+}
+
+body main #team {
+  margin-top: 50px;
+}
+
+body main #team .person {
+  width: 200px;
+  display: inline-block;
+  margin-right: 40px;
+  vertical-align: top;
+
+}
+
+body main #team .person h2 {
+  font-size: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+body main #team .person h3 {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  color: #888888;
+  margin: 0;
+}
+
+body main #team .person img {
+  border-radius: 50%;
+  border: 1px solid #F1F2F5;
+}
+
+body main #team .person p {
+  font-size: 14px;
+  color: #262626;
+}
+
+body main hr {
+  border: none;
+  border-top: 1px dotted #D5D5D5;
+  height: 1px;
+  margin: 25px 0 15px 0;
+}
